@@ -1,8 +1,10 @@
+/// <reference types="vite/client" />
 import axios from "axios";
 import type { ChatResponseDTO } from "../types";
 
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? "http://localhost:3001"
+  baseURL: (import.meta as any).env?.VITE_API_URL ?? "http://localhost:3001"
 });
 
 export async function sendMessage(conversationId: string | null, message: string): Promise<ChatResponseDTO> {
